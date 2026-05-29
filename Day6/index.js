@@ -75,18 +75,18 @@ async function runcommand() {
                     6: Give shell/terminal command to write on css file 
                     7: Give shell/terminal command to write on javascript file
                     8: fix the error if they are persent at any step by writing, update or deleting`,
-                tools: [
-                    {
-                        functionDeclarations: [excutecommandTool],
-                    },
-                ]
+                    tools: [
+                        {
+                            functionDeclarations: [excutecommandTool],
+                        },
+                    ]
             },
         });
     
 
         if(result.functionCalls && result.functionCalls.length>0){
             const functioncall = result.functionCalls[0]
-
+            // console.log(functioncall)
             const {name, args} = functioncall
 
             const toolresponse = await excuteCommand(args)
